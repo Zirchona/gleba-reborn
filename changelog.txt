@@ -1,10 +1,15 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.2.1
+Date: 2025-11-09
+  Features:
+    - Moved biolubricant unlock from bioflux processing to biochamber, since the recipe doesn't require bioflux.
+---------------------------------------------------------------------------------------------------
 Version: 1.2.0
 Date: 2025-11-08
   Features:
     - Increased the output of the biochamber steel and circuit recipes to make them more viable to use.
   Bugfixes:
-    - Fixed recycler recipes not being updated.
+    - Fixed recycler recipes not being updated. (thanks tabr!)
     - Added compatibility for Bob's centrifuges, the Behemoth Enemies mod, and Age of Production.
 ---------------------------------------------------------------------------------------------------
 Version: 1.1.0
