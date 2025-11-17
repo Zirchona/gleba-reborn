@@ -13,53 +13,53 @@ local spoil_time_values = {
 }
 
 data:extend({
-    {
-        type = "bool-setting",
-        name = "gleba-reborn-compatability-mode",
-        setting_type = "startup",
-        order = "a",
-        default_value = false
-    },
 	{
         type = "bool-setting",
         name = "gleba-reborn-advanced-bacteria-recipes",
         setting_type = "startup",
-        order = "b",
+        order = "a[recipe]-a",
         default_value = true
     },
 	{
         type = "bool-setting",
         name = "gleba-reborn-extra-biochamber-recipes",
         setting_type = "startup",
-        order = "d",
+        order = "a[recipe]-b",
         default_value = true
     },
 	{
         type = "bool-setting",
         name = "gleba-reborn-egg-free-biochamber",
         setting_type = "startup",
-        order = "e",
+        order = "a[recipe]-c",
         default_value = true
     },
 	{
         type = "bool-setting",
         name = "gleba-reborn-useful-wood-fish",
         setting_type = "startup",
-        order = "f",
+        order = "a[recipe]-d",
         default_value = true
     },
 	{
         type = "bool-setting",
         name = "gleba-reborn-hungry-biolab",
         setting_type = "startup",
-        order = "g",
+        order = "b[rebalance]-a",
         default_value = true
+    },
+	{
+        type = "bool-setting",
+        name = "gleba-reborn-more-seeds",
+        setting_type = "startup",
+        order = "b[rebalance]-b",
+        default_value = false
     },
 	{
         type = "string-setting",
         name = "gleba-reborn-less-enemies",
         setting_type = "startup",
-        order = "h",
+        order = "b[rebalance]-c",
         default_value = "start",
         allowed_values = {
 			"normal",
@@ -68,10 +68,17 @@ data:extend({
 		},
     },
 	{
+        type = "bool-setting",
+        name = "gleba-reborn-reset-science-spoilage",
+        setting_type = "startup",
+        order = "b[rebalance]-d",
+        default_value = false
+    },
+	{
         type = "string-setting",
         name = "gleba-reborn-science-spoil-time",
         setting_type = "startup",
-        order = "i",
+        order = "c[spoil]-a",
         default_value = "1-hr",
         allowed_values = spoil_time_values,
     },
@@ -79,7 +86,15 @@ data:extend({
         type = "string-setting",
         name = "gleba-reborn-nutrient-spoil-time",
         setting_type = "startup",
-        order = "j",
+        order = "c[spoil]-b",
+        default_value = "5-min",
+        allowed_values = spoil_time_values,
+    },
+	{
+        type = "string-setting",
+        name = "gleba-reborn-bacteria-spoil-time",
+        setting_type = "startup",
+        order = "c[spoil]-c",
         default_value = "5-min",
         allowed_values = spoil_time_values,
     },
@@ -87,15 +102,14 @@ data:extend({
         type = "bool-setting",
         name = "gleba-reborn-bacteria-spoilage",
         setting_type = "startup",
-        order = "k",
+        order = "c[spoil]-d",
         default_value = true
     },
-	{
-        type = "string-setting",
-        name = "gleba-reborn-bacteria-spoil-time",
+    {
+        type = "bool-setting",
+        name = "gleba-reborn-compatability-mode",
         setting_type = "startup",
-        order = "l",
-        default_value = "5-min",
-        allowed_values = spoil_time_values,
+        order = "d[compatibility]-a",
+        default_value = false
     },
 })

@@ -178,5 +178,16 @@ function update_enemy_spawns(enemy_spawns, replacement_spawns)
 	end
 end
 
+function update_result_probability(recipe_name, result_name, new_probability)
+	local recipe = data.raw.recipe[recipe_name]
+	if recipe and recipe.results then
+		for _,result in pairs(recipe.results) do
+			if result.name == result_name then
+				result.probability = new_probability
+			end
+		end
+	end
+end
+
 
 

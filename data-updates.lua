@@ -94,6 +94,12 @@ if settings.startup["gleba-reborn-extra-biochamber-recipes"].value then
 	set_recipe_category("nuclear-fuel", "organic-or-centrifuging")
 end
 
+if settings.startup["gleba-reborn-more-seeds"].value then
+	-- Base seed chance is 2%, increase to 5% to speed things up when setting up farms
+	update_result_probability("yumako-processing", "yumako-seed", 0.05)
+	update_result_probability("jellynut-processing", "jellynut-seed", 0.05)
+end
+
 if settings.startup["gleba-reborn-hungry-biolab"].value then
 	data.raw.lab.biolab.energy_source = {
 		burner_usage = "nutrients",
@@ -120,6 +126,15 @@ if settings.startup["gleba-reborn-less-enemies"].value then
 		end
 	end
 end
+
+if settings.startup["gleba-reborn-reset-science-spoilage"].value then
+	local science_recipe = data.raw.recipe["agricultural-science-pack"]
+	if science_recipe then
+		science_recipe.reset_freshness_on_craft = true
+	end
+end
+
+
 
 if settings.startup["gleba-reborn-nutrient-spoil-time"].value then
 	set_item_spoil_time("nutrients", settings.startup["gleba-reborn-nutrient-spoil-time"].value)

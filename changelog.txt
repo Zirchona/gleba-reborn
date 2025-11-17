@@ -1,4 +1,10 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.2.2
+Date: 2025-11-17
+  Features:
+    - Added optional setting that makes all newly crafted science be 100% fresh, even if the ingredients were partially spoiled.
+    - Added optional setting that increases the amount of seeds produced by processing fruit.
+---------------------------------------------------------------------------------------------------
 Version: 1.2.1
 Date: 2025-11-09
   Features:
@@ -9,7 +15,7 @@ Date: 2025-11-08
   Features:
     - Increased the output of the biochamber steel and circuit recipes to make them more viable to use.
   Bugfixes:
-    - Fixed recycler recipes not being updated. (thanks tabr!)
+    - Fixed recycler recipes not being updated. (Thanks tabr!)
     - Added compatibility for Bob's centrifuges, the Behemoth Enemies mod, and Age of Production.
 ---------------------------------------------------------------------------------------------------
 Version: 1.1.0
