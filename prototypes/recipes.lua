@@ -201,6 +201,7 @@ local synthetic_nutrients = {
 	enabled = false,
 	allow_productivity = true,
 	show_amount_in_title = true,
+	auto_recycle = false,
 }
 
 

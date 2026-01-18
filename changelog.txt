@@ -1,4 +1,9 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.2.4
+Date: 2026-01-17
+  Bugfixes
+    - Fixed nutrients recycling recipe to give spoilage instead of the new ingredients from the synthetic nutrients recipe
+---------------------------------------------------------------------------------------------------
 Version: 1.2.3
 Date: 2025-12-20
   Features:
