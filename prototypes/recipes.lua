@@ -205,6 +205,32 @@ local synthetic_nutrients = {
 }
 
 
+-- Artificial Tree Soil
+local treeSoilName = "gleba-reborn-artificial-tree-soil"
+
+local treeSoil = table.deepcopy(data.raw.recipe["artificial-jellynut-soil"])
+treeSoil.name = treeSoilName
+treeSoil.icon = "__gleba-reborn__/graphics/icons/artificial-tree-soil.png"
+treeSoil.ingredients = {
+	{ amount = 2, name = "tree-seed", type = "item" },
+	{ amount = 50, name = "nutrients", type = "item" },
+	{ amount = 5, name = "landfill", type = "item" }
+}
+treeSoil.results = {{ amount = 10, name = treeSoilName, type = "item" }}
+treeSoil.surface_conditions = nil
+
+local treeSoilRecycling = table.deepcopy(data.raw.recipe["artificial-jellynut-soil-recycling"])
+treeSoilRecycling.name = treeSoilName .. "-recycling"
+treeSoilRecycling.ingredients = {
+	{ amount = 1, name = treeSoilName, type = "item" }
+}
+treeSoilRecycling.results = {
+	{ amount = 0.05, extra_count_fraction = 0.05, name = "tree-seed", type = "item" },
+	{ amount = 1.25, extra_count_fraction = 0.25, name = "nutrients", type = "item" },
+	{ amount = 0.125, extra_count_fraction = 0.125, name = "landfill", type = "item" }
+}
+
+
 data:extend {
 	organic_centrifuging_category,
 	bacteria_processes_subgroup,
@@ -214,5 +240,7 @@ data:extend {
 	bacteria_extrusion_circuit,
 	bioexplosives,
 	synthetic_nutrients,
+	treeSoil,
+	treeSoilRecycling
 }
 

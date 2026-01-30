@@ -1,6 +1,7 @@
 
 require("util")
 require("prototypes/recipes")
+require("prototypes/items")
 require("common")
 
 
@@ -70,6 +71,20 @@ if settings.startup["gleba-reborn-useful-wood-fish"].value then
 	data.raw.item["tree-seed"].weight = 4000
 	data.raw.item["jellynut-seed"].weight = 4000
 	data.raw.item["yumako-seed"].weight = 4000
+	
+	-- Artificial Tree Soil
+	table.insert(data.raw.technology["artificial-soil"].effects, { type = "unlock-recipe", recipe="gleba-reborn-artificial-tree-soil" })
+	
+	-- Don't allow trees to be farmed on desert tiles. Only specific types of sand disallow tree farming in the base game for some reason.
+	local treeTiles = data.raw.plant["tree-plant"].autoplace.tile_restriction
+	for i = #treeTiles, 1, -1 do
+		if treeTiles[i] == "dirt-1"
+				or treeTiles[i] == "red-desert-1"
+				or treeTiles[i] == "red-desert-2"
+				or treeTiles[i] == "red-desert-3" then
+			table.remove(treeTiles, i)
+		end
+	end
 end
 
 if settings.startup["gleba-reborn-extra-biochamber-recipes"].value then
