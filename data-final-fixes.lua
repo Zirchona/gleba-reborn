@@ -1,7 +1,6 @@
 
-require("util")
+require("common")
 require("prototypes/recipes")
-
 
 
 -- Compatibility fixes

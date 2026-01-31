@@ -1,8 +1,78 @@
 
-require("util")
 require("prototypes/recipes")
 require("prototypes/items")
 require("common")
+
+
+
+local jellynut_biome_tiles = {
+	"wetland-pink-tentacle",
+	"wetland-red-tentacle",
+	"wetland-jellynut",
+	"lowland-red-vein",
+	"lowland-red-vein-2",
+	"lowland-red-vein-3",
+	"lowland-red-vein-4",
+	"lowland-red-vein-dead",
+	"lowland-red-infection",
+	"lowland-cream-red"
+}
+
+local yumako_biome_tiles = {
+	"wetland-light-green-slime",
+	"wetland-green-slime",
+	"wetland-yumako",
+	"lowland-olive-blubber",
+	"lowland-olive-blubber-2",
+	"lowland-olive-blubber-3",
+	"lowland-brown-blubber",
+	"lowland-pale-green"
+}
+
+local all_gleba_tiles = {
+	"gleba-deep-lake",
+	"highland-dark-rock",
+	"highland-dark-rock-2",
+	"highland-yellow-rock",
+	"lowland-brown-blubber",
+	"lowland-cream-cauliflower",
+	"lowland-cream-cauliflower-2",
+	"lowland-cream-red",
+	"lowland-dead-skin",
+	"lowland-dead-skin-2",
+	"lowland-olive-blubber",
+	"lowland-olive-blubber-2",
+	"lowland-olive-blubber-3",
+	"lowland-pale-green",
+	"lowland-red-infection",
+	"lowland-red-vein",
+	"lowland-red-vein-2",
+	"lowland-red-vein-3",
+	"lowland-red-vein-4",
+	"lowland-red-vein-dead",
+	"midland-cracked-lichen",
+	"midland-cracked-lichen-dark",
+	"midland-cracked-lichen-dull",
+	"midland-turquoise-bark",
+	"midland-turquoise-bark-2",
+	"midland-yellow-crust",
+	"midland-yellow-crust-2",
+	"midland-yellow-crust-3",
+	"midland-yellow-crust-4",
+	"natural-jellynut-soil",
+	"natural-yumako-soil",
+	"pit-rock",
+	"wetland-blue-slime",
+	"wetland-dead-skin",
+	"wetland-green-slime",
+	"wetland-jellynut",
+	"wetland-light-dead-skin",
+	"wetland-light-green-slime",
+	"wetland-pink-tentacle",
+	"wetland-red-tentacle",
+	"wetland-yumako"
+}
+
 
 
 if settings.startup["gleba-reborn-egg-free-biochamber"].value then
@@ -108,6 +178,23 @@ if settings.startup["gleba-reborn-extra-biochamber-recipes"].value then
 	set_recipe_category("uranium-processing", "organic-or-centrifuging")
 	set_recipe_category("kovarex-enrichment-process", "organic-or-centrifuging")
 	set_recipe_category("nuclear-fuel", "organic-or-centrifuging")
+end
+
+if settings.startup["gleba-reborn-better-soil"].value then
+	-- Artificial soil can be placed anywhere in the green/purple biome, overgrowth soil can be placed anywhere on gleba.
+	local artificial_jellynut_tile_rules = data.raw.item["artificial-jellynut-soil"].place_as_tile
+	artificial_jellynut_tile_rules.tile_condition = jellynut_biome_tiles
+	artificial_jellynut_tile_rules.condition.layers = {}
+
+	local artificial_yumako_tile_rules = data.raw.item["artificial-yumako-soil"].place_as_tile
+	artificial_yumako_tile_rules.tile_condition = yumako_biome_tiles
+	artificial_yumako_tile_rules.condition.layers = {}
+
+	local overgrowth_jellynut_tile_rules = data.raw.item["overgrowth-jellynut-soil"].place_as_tile
+	overgrowth_jellynut_tile_rules.tile_condition = all_gleba_tiles
+
+	local overgrowth_yumako_tile_rules = data.raw.item["overgrowth-yumako-soil"].place_as_tile
+	overgrowth_yumako_tile_rules.tile_condition = all_gleba_tiles
 end
 
 if settings.startup["gleba-reborn-more-seeds"].value then

@@ -24,6 +24,8 @@ These are disabled by default but can be enabled in the mod settings. (Main Menu
 
 - **Change or Disable Spoilage for Individual Items:** Choose separate spoilage times for nutrients, bacteria, and agricultural science packs, or make them never spoil.
 
+- **Better Soil:** Allows artificial yumako/jellynut soil to be placed anywhere in the green/purple biome, and overgrowth soil to be placed anywhere on gleba.
+
 - **Always Fresh Agricultural Science:** When enabled, newly crafted agricultural science is always 100% fresh, even if the ingredients were partially spoiled.
 
 - **More Seeds from Fruit:** Increases the rate at which seeds are produced by processing fruit, to speed up the process of establishing your first farms on Gleba.

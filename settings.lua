@@ -50,16 +50,23 @@ data:extend({
     },
 	{
         type = "bool-setting",
-        name = "gleba-reborn-more-seeds",
+        name = "gleba-reborn-better-soil",
         setting_type = "startup",
         order = "b[rebalance]-b",
+        default_value = false
+    },
+	{
+        type = "bool-setting",
+        name = "gleba-reborn-more-seeds",
+        setting_type = "startup",
+        order = "b[rebalance]-c",
         default_value = false
     },
 	{
         type = "string-setting",
         name = "gleba-reborn-less-enemies",
         setting_type = "startup",
-        order = "b[rebalance]-c",
+        order = "b[rebalance]-d",
         default_value = "start",
         allowed_values = {
 			"normal",
