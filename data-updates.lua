@@ -74,6 +74,10 @@ local all_gleba_tiles = {
 }
 
 
+-- Allow harvesting a fruit tree to unlock the processing recipes even if you haven't mined iron stromatolite yet
+data.raw.technology["yumako"].prerequisites = { "planet-discovery-gleba" }
+data.raw.technology["jellynut"].prerequisites = { "planet-discovery-gleba" }
+
 
 if settings.startup["gleba-reborn-egg-free-biochamber"].value then
 	-- Update biochamber recipe

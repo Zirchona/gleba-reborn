@@ -1,4 +1,9 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.3.1
+Date: 2026-02-05
+  Features:
+    - Harvesting a fruit tree now unlocks the fruit processing recipes, even if you haven't mined iron stromatolite yet.
+---------------------------------------------------------------------------------------------------
 Version: 1.3.0
 Date: 2026-01-31
   Features:
