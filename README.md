@@ -28,4 +28,6 @@ These are disabled by default but can be enabled in the mod settings. (Main Menu
 
 - **Always Fresh Agricultural Science:** When enabled, newly crafted agricultural science is always 100% fresh, even if the ingredients were partially spoiled.
 
+- **Randomized Tree Growth:** Increases or decreases grow time by up to 30 seconds, ensuring that farms produce a steady stream of fruit instead of producing big batches all at once.
+
 - **More Seeds from Fruit:** Increases the rate at which seeds are produced by processing fruit, to speed up the process of establishing your first farms on Gleba.
