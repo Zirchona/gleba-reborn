@@ -57,16 +57,23 @@ data:extend({
     },
 	{
         type = "bool-setting",
-        name = "gleba-reborn-more-seeds",
+        name = "gleba-reborn-random-growth",
         setting_type = "startup",
         order = "b[rebalance]-c",
+        default_value = false
+    },
+	{
+        type = "bool-setting",
+        name = "gleba-reborn-more-seeds",
+        setting_type = "startup",
+        order = "b[rebalance]-d",
         default_value = false
     },
 	{
         type = "string-setting",
         name = "gleba-reborn-less-enemies",
         setting_type = "startup",
-        order = "b[rebalance]-d",
+        order = "b[rebalance]-e",
         default_value = "start",
         allowed_values = {
 			"normal",
@@ -78,7 +85,7 @@ data:extend({
         type = "bool-setting",
         name = "gleba-reborn-reset-science-spoilage",
         setting_type = "startup",
-        order = "b[rebalance]-d",
+        order = "b[rebalance]-f",
         default_value = false
     },
 	{
