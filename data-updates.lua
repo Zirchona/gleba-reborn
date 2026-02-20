@@ -78,6 +78,10 @@ local all_gleba_tiles = {
 data.raw.technology["yumako"].prerequisites = { "planet-discovery-gleba" }
 data.raw.technology["jellynut"].prerequisites = { "planet-discovery-gleba" }
 
+-- Biochambers that are crafting bioflux are now tinted red instead of green
+data.raw.recipe["bioflux"].crafting_machine_tint.primary = { r = 1.0, b = 0.0, g = 0.0, a = 1 }
+data.raw.recipe["bioflux"].crafting_machine_tint.secondary = { r = 1.0, b = 0.0, g = 0.0, a = 1 }
+
 
 if settings.startup["gleba-reborn-egg-free-biochamber"].value then
 	-- Update biochamber recipe
@@ -182,6 +186,10 @@ if settings.startup["gleba-reborn-extra-biochamber-recipes"].value then
 	set_recipe_category("uranium-processing", "organic-or-centrifuging")
 	set_recipe_category("kovarex-enrichment-process", "organic-or-centrifuging")
 	set_recipe_category("nuclear-fuel", "organic-or-centrifuging")
+	
+	-- Allow nutrient recipes to be crafted in biochamber or assembling machine
+	set_recipe_category("nutrients-from-bioflux", "organic-or-assembling")
+	set_recipe_category("nutrients-from-yumako-mash", "organic-or-assembling")
 end
 
 if settings.startup["gleba-reborn-better-soil"].value then
