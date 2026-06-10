@@ -14,12 +14,68 @@ local bacteria_processes_subgroup = {
 	type = "item-subgroup"
 }
 
+local iron_ore_precipitation = {
+	type = "recipe",
+	name = "gleba-reborn-iron-ore-precipitation",
+	category = "organic-or-assembling",
+	subgroup = "gleba-reborn-bacteria-processes",
+	order = "f[bacteria]-a[bacteria]-a[iron]",
+	icon = "__gleba-reborn__/graphics/icons/iron-ore-precipitation.png",
+	icon_size = 64,
+	icon_mipmaps = 4,
+	crafting_machine_tint = {
+		primary = {
+			r = 101,
+			g = 67,
+			b = 33,
+			a = 255,
+		},
+	},
+	ingredients = {
+		{ type = "item", name = "iron-bacteria", amount = 1 },
+	},
+	results = {
+		{ type = "item", name = "iron-ore", amount = 1 },
+	},
+	energy_required = 1,
+	enabled = false,
+	allow_productivity = true,
+}
+
+local copper_ore_precipitation = {
+	type = "recipe",
+	name = "gleba-reborn-copper-ore-precipitation",
+	category = "organic-or-assembling",
+	subgroup = "gleba-reborn-bacteria-processes",
+	order = "f[bacteria]-a[bacteria]-b[copper]",
+	icon = "__gleba-reborn__/graphics/icons/copper-ore-precipitation.png",
+	icon_size = 64,
+	icon_mipmaps = 4,
+	crafting_machine_tint = {
+		primary = {
+			r = 101,
+			g = 67,
+			b = 33,
+			a = 255,
+		},
+	},
+	ingredients = {
+		{ type = "item", name = "copper-bacteria", amount = 1 },
+	},
+	results = {
+		{ type = "item", name = "copper-ore", amount = 1 },
+	},
+	energy_required = 1,
+	enabled = false,
+	allow_productivity = true,
+}
+
 local bacteria_extrusion_iron = {
 	type = "recipe",
 	name = "gleba-reborn-iron-bacteria-extrusion",
 	category = "organic",
 	subgroup = "gleba-reborn-bacteria-processes",
-	order = "f[bacteria]-a[bacteria]-a[iron]",
+	order = "f[bacteria]-a[bacteria]-c[iron]",
 	icon = "__gleba-reborn__/graphics/icons/iron-bacteria-extrusion.png",
 	icon_size = 64,
 	icon_mipmaps = 4,
@@ -47,7 +103,7 @@ local bacteria_extrusion_copper = {
 	name = "gleba-reborn-copper-bacteria-extrusion",
 	category = "organic",
 	subgroup = "gleba-reborn-bacteria-processes",
-	order = "f[bacteria]-a[bacteria]-b[copper]",
+	order = "f[bacteria]-a[bacteria]-d[copper]",
 	icon = "__gleba-reborn__/graphics/icons/copper-bacteria-extrusion.png",
 	icon_size = 64,
 	icon_mipmaps = 4,
@@ -75,7 +131,7 @@ local bacteria_extrusion_steel = {
 	name = "gleba-reborn-steel-bacteria-extrusion",
 	category = "organic",
 	subgroup = "gleba-reborn-bacteria-processes",
-	order = "f[bacteria]-a[bacteria]-c[steel]",
+	order = "f[bacteria]-a[bacteria]-e[steel]",
 	icon = "__gleba-reborn__/graphics/icons/steel-bacteria-extrusion.png",
 	icon_size = 64,
 	icon_mipmaps = 4,
@@ -104,7 +160,7 @@ local bacteria_extrusion_circuit = {
 	name = "gleba-reborn-circuit-bacteria-extrusion",
 	category = "organic",
 	subgroup = "gleba-reborn-bacteria-processes",
-	order = "f[bacteria]-a[bacteria]-d[circuit]",
+	order = "f[bacteria]-a[bacteria]-f[circuit]",
 	icon = "__gleba-reborn__/graphics/icons/circuit-bacteria-extrusion.png",
 	icon_size = 64,
 	icon_mipmaps = 4,
@@ -234,6 +290,8 @@ treeSoilRecycling.results = {
 data:extend {
 	organic_centrifuging_category,
 	bacteria_processes_subgroup,
+	iron_ore_precipitation,
+	copper_ore_precipitation,
 	bacteria_extrusion_iron,
 	bacteria_extrusion_copper,
 	bacteria_extrusion_steel,

@@ -99,6 +99,8 @@ end
 
 if settings.startup["gleba-reborn-advanced-bacteria-recipes"].value then
 	-- Add new recipes
+	table.insert(data.raw.technology["biochamber"].effects, { type = "unlock-recipe", recipe = "gleba-reborn-iron-ore-precipitation" })
+	table.insert(data.raw.technology["biochamber"].effects, { type = "unlock-recipe", recipe = "gleba-reborn-copper-ore-precipitation" })
 	table.insert(data.raw.technology["biochamber"].effects, { type = "unlock-recipe", recipe = "gleba-reborn-iron-bacteria-extrusion" })
 	table.insert(data.raw.technology["biochamber"].effects, { type = "unlock-recipe", recipe = "gleba-reborn-copper-bacteria-extrusion" })
 	table.insert(data.raw.technology["bioflux-processing"].effects, { type = "unlock-recipe", recipe = "gleba-reborn-circuit-bacteria-extrusion" })
