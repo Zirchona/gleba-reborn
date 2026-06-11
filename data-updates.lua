@@ -109,10 +109,10 @@ if settings.startup["gleba-reborn-advanced-bacteria-recipes"].value then
 	table.insert(data.raw.technology["steel-plate-productivity"].effects, { change = 0.1, recipe = "gleba-reborn-steel-bacteria-extrusion", type = "change-recipe-productivity" })
 	
 	-- Add new subgroup to put all the bacteria recipes on their own line in the crafting recipe menu
-	data.raw.recipe["iron-bacteria"].subgroup = "gleba-reborn-bacteria-processes"
-	data.raw.recipe["copper-bacteria"].subgroup = "gleba-reborn-bacteria-processes"
-	data.raw.recipe["iron-bacteria-cultivation"].subgroup = "gleba-reborn-bacteria-processes"
-	data.raw.recipe["copper-bacteria-cultivation"].subgroup = "gleba-reborn-bacteria-processes"
+	set_recipe_subgroup("iron-bacteria", "gleba-reborn-bacteria-processes")
+	set_recipe_subgroup("copper-bacteria", "gleba-reborn-bacteria-processes")
+	set_recipe_subgroup("iron-bacteria-cultivation", "gleba-reborn-bacteria-processes")
+	set_recipe_subgroup("copper-bacteria-cultivation", "gleba-reborn-bacteria-processes")
 	
 	-- Move biolubricant recipe from bioflux processing to biochamber, since the recipe doesn't require bioflux
 	table.insert(data.raw.technology["biochamber"].effects, { type = "unlock-recipe", recipe = "biolubricant" })
@@ -168,12 +168,9 @@ if settings.startup["gleba-reborn-useful-wood-fish"].value then
 end
 
 if settings.startup["gleba-reborn-extra-biochamber-recipes"].value then
-	-- New crafting category for recipes that can be made in both the biochamber and the centrifuge
-	table.insert(data.raw["assembling-machine"]["biochamber"].crafting_categories, "organic-or-centrifuging")
-	table.insert(data.raw["assembling-machine"]["centrifuge"].crafting_categories, "organic-or-centrifuging")
-	
 	table.insert(data.raw.technology["biochamber"].effects, { type = "unlock-recipe", recipe = "gleba-reborn-synthetic-nutrients" })
 	
+	-- Add recipes to the biochamber
 	set_recipe_category("ice-melting", "organic-or-chemistry")
 	set_recipe_category("thruster-fuel", "organic-or-chemistry")
 	set_recipe_category("thruster-oxidizer", "organic-or-chemistry")
@@ -184,14 +181,7 @@ if settings.startup["gleba-reborn-extra-biochamber-recipes"].value then
 	set_recipe_category("solid-fuel-from-petroleum-gas", "organic-or-chemistry")
 	set_recipe_category("coal-synthesis", "organic-or-chemistry")
 	set_recipe_category("lubricant", "organic-or-chemistry")
-	set_recipe_category("biolab", "organic")
-	set_recipe_category("uranium-processing", "organic-or-centrifuging")
-	set_recipe_category("kovarex-enrichment-process", "organic-or-centrifuging")
-	set_recipe_category("nuclear-fuel", "organic-or-centrifuging")
-	
-	-- Allow nutrient recipes to be crafted in biochamber or assembling machine
-	set_recipe_category("nutrients-from-bioflux", "organic-or-assembling")
-	set_recipe_category("nutrients-from-yumako-mash", "organic-or-assembling")
+	set_recipe_category("biolab", "organic-or-assembling")
 end
 
 if settings.startup["gleba-reborn-better-soil"].value then
@@ -218,18 +208,21 @@ if settings.startup["gleba-reborn-more-seeds"].value then
 end
 
 if settings.startup["gleba-reborn-hungry-biolab"].value then
-	data.raw.lab.biolab.energy_source = {
-		burner_usage = "nutrients",
-		effectivity = 1,
-		emissions_per_minute = {
-			pollution = -1
-		},
-		fuel_categories = {
-			"nutrients"
-		},
-		fuel_inventory_size = 1,
-		type = "burner"
-	}
+	local biolab = data.raw.lab.biolab
+	if biolab then
+		biolab.energy_source = {
+			burner_usage = "nutrients",
+			effectivity = 1,
+			emissions_per_minute = {
+				pollution = -1
+			},
+			fuel_categories = {
+				"nutrients"
+			},
+			fuel_inventory_size = 1,
+			type = "burner"
+		}
+	end
 end
 
 if settings.startup["gleba-reborn-less-enemies"].value then

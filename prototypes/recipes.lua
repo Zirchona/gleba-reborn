@@ -2,11 +2,6 @@
 require("common")
 
 
-local organic_centrifuging_category = {
-	type = "recipe-category",
-	name = "organic-or-centrifuging",
-}
-
 local bacteria_processes_subgroup = {
 	group = "intermediate-products",
 	name = "gleba-reborn-bacteria-processes",
@@ -288,7 +283,6 @@ treeSoilRecycling.results = {
 
 
 data:extend {
-	organic_centrifuging_category,
 	bacteria_processes_subgroup,
 	iron_ore_precipitation,
 	copper_ore_precipitation,

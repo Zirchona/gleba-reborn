@@ -169,6 +169,34 @@ function set_recipe_category(recipe, new_category)
 	end
 end
 
+function copy_recipe_to_category(recipe_name, new_category)
+	if data.raw.recipe[recipe_name] and data.raw["recipe-category"][new_category] then
+		local recipe_copy = table.deepcopy(data.raw.recipe[recipe_name])
+		recipe_copy.name = "gleba-reborn-" .. recipe_name
+		recipe_copy.category = new_category
+		data:extend{ recipe_copy }
+		
+		-- Unlock the new recipe copy in the same way as the original
+		for i,tech in pairs(data.raw.technology) do
+			if tech and tech.effects then
+				for i,effect in pairs(tech.effects) do
+					if effect and effect.recipe == recipe_name then
+						table.insert(tech.effects, { type = "unlock-recipe", recipe = recipe_copy.name })
+						break
+					end
+				end
+			end
+		end
+	end
+end
+
+function set_recipe_subgroup(recipe, new_subgroup)
+	if data.raw.recipe[recipe] and data.raw["item-subgroup"][new_subgroup] then
+		local recipe = data.raw.recipe[recipe]
+		recipe.subgroup = new_subgroup
+	end
+end
+
 function update_enemy_spawns(enemy_spawns, replacement_spawns)
 	for i,spawn in pairs(enemy_spawns) do
 		local enemy_name = spawn[1]

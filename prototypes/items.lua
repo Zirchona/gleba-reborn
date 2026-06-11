@@ -6,7 +6,7 @@ local jellynutTile = data.raw.tile["artificial-jellynut-soil"]
 
 local treeSoilTile = table.deepcopy(data.raw.tile["grass-1"])
 treeSoilTile.name = treeSoilName
-treeSoilTile.minable = jellynutTile.minable
+treeSoilTile.minable =  table.deepcopy(jellynutTile.minable)
 treeSoilTile.minable.result = treeSoilName
 treeSoilTile.mined_sound = jellynutTile.mined_sound
 treeSoilTile.map_color={52, 72, 10}

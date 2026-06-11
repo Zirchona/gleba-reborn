@@ -1,4 +1,10 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.3.5
+Date: 2026-06-11
+  Bugfixes:
+    - Fixed artificial jellynut soil giving tree soil when mined.
+    - Broad compatibility fixes.
+---------------------------------------------------------------------------------------------------
 Version: 1.3.4
 Date: 2026-06-10
   Features:
